@@ -14,16 +14,17 @@ t_plot = linspace(0,20,5000);
 alpha_unknown=1;
 alpha_exp=calculate_alpha_exp(alpha,alpha_unknown,x,t_min,t_max);
 
-
+%Ger vanlig skala
 %plot(t_plot(2:end-1),alpha_exp,LineWidth=1.5)
 %hold on
 %plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--')
-%legend('Explicit calculation','True value of parameter')
+%legend('Explicit beräkning','Sanna parametervärdet')
 
+%Ger logaritmisk skala
 plot(t_plot(2:end-1),log10(alpha_exp),LineWidth=1.5)
 hold on
 plot([0 20],[log10(alpha(alpha_unknown)) log10(alpha(alpha_unknown))], 'r--')
-legend('Logarithm of explicit calculation','True value of parameter')
+legend('Logaritmiska värdet av den explicita beräkningen','Sanna parametervärdet')
 
 %% 
 function alpha = alpha_vec(dm1,dm2,at1,at2,k12,time_mesh)

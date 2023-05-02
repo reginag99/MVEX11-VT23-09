@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function f = ForwardODE23s(alpha,time_mesh,x_initial)
     [time,f] = ode23s(@(t,x) Forfunc(t,x,alpha,time_mesh),time_mesh,x_initial);
     f = f';
@@ -11,20 +10,4 @@ function f = ForwardODE23s(alpha,time_mesh,x_initial)
         alphat = alphaPol(t);
         func = Forwardfunc(x,alphat);
     end
-    
-=======
-function f = ForwardODE23s(alpha,time_mesh,x_initial)
-    [time,f] = ode23s(@(t,x) Forfunc(t,x,alpha,time_mesh),time_mesh,x_initial);
-    f = f';
-    function func = Forfunc(t,x,alpha,time_mesh)
-        alphaPol =@(t) [];
-        for i = 1:size(alpha,1)
-           Pol_i =@(t) interp1(time_mesh,alpha(i,:),t);
-           alphaPol =@(t) [alphaPol(t); Pol_i(t)]; 
-        end
-        alphat = alphaPol(t);
-        func = Forwardfunc(x,alphat);
-    end
-    
->>>>>>> fd47580eac778269c6a64a6efd89ecec96a69860
 end

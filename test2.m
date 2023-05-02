@@ -15,8 +15,6 @@ x_initial = [5*10^6; 10^3; 10^3];
 alpha = alpha_vec(10^-9,10^-10,10^-8,10^-10,5*10^-10,time_mesh);
 noise_level = 0.1;% 10% noise
 
-%using ode45 since newton seems to have problems with low numbers for
-% this particular system of odes
 
 [g, g_brus, g_add] = ExactODE45(alpha,time_mesh,noise_level,x_initial);
 figure

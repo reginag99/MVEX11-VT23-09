@@ -11,15 +11,18 @@ time_mesh = linspace(0,time_final,m);
 x_initial = [5*10^6; 10^3; 10^3];
 
 %% Variations in observations
-alpha_max = [10^-7 10^-8 10^-6 10^-8 10^-9];        % rekommenderas ej
-alpha_min = [10^-11 10^-12 10^-10 10^-12 10^-12];   % rekommenderas ej
+%Nedanstående max och min förvardera parameter är respektives
+%parameterintervall, givet i rapporten. Undantag är för parameter 5, dvs
+%k12, där intervallet behövde flyttas för att få fram bra grafer.
+alpha_max = [10^-7 10^-8 10^-6 10^-8 10^-7];        % ändra sista värdet till 10^-9 för parameter 5
+alpha_min = [10^-11 10^-12 10^-10 10^-12 10^-10];   % ändra sista värdet till 10^-12 för parameter 5
 alpha_mid = 10.^((log10(alpha_min)+log10(alpha_max))/2);
 
-% Saker att ändra för att göra andra grafer
+% Konstanter att ändra för att plotta andra parametrar och grafer
 alpha = alpha_mid;  % Värden på parametrar som ej varieras
 big_var = 2;        % Hur många stora linjer
 small_var = 5;     % Hur många små linjer per stor linje
-alpha_chosen = 5;   % Vilken parameter ska varieras
+alpha_chosen = 1;   % Vilken parameter ska varieras
 
 alpha_chosen_variance = [alpha_min(alpha_chosen) alpha_max(alpha_chosen)];
 variation=logspace(log10(alpha_chosen_variance(1)),log10(alpha_chosen_variance(end)),big_var);

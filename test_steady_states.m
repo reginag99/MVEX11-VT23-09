@@ -10,6 +10,8 @@ time_mesh = linspace(0,time_final,m);
 % initial values that seems to fit fig 1a 
 x_initial = [0; 10^3; 0]; 
 
+
+%Resultat av analys
 % (I): (10^-6, 10^-3, 10^-3) gick bort från origo
 % (II): (10^-6, 0, 0) gick mot (Beta_T, 0, 0)
 % (III): Lösning 1 (+): (3*10^9, 10^(-6), 10^8) gick mot (3.1298490038×10^9, 0, 402531911.894)
