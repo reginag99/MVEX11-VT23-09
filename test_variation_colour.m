@@ -1,13 +1,13 @@
-%%  Initials
+%%  Startvärden
 clc; close all; clear
-%%initial of x and time variables
-m = 500; % number of observations
-obs_start = 2.1; obs_end = 7; %interval of observations
+%%Startvärden på x och tidsvariabler
+m = 500; % Antal observationer
+obs_start = 2.1; obs_end = 7; %Intervall för observationer
 time_final = 20;
 
 time_mesh = linspace(0,time_final,m);
 % x_initial = [x_T(0); x_M1(0); x_M2(0)]
-% initial values that seems to fit fig 1a
+% Startvärden som verkar passa fig 1a
 x_initial = [5*10^6; 10^3; 10^3];
 
 %% Variations in observations
@@ -30,16 +30,16 @@ variation_step=variation(2)/variation(1);
 
 figure("Name", "Variation av parameter  " + alpha_chosen)
 subplot(3,1,1)
-xlabel('Dagar')
-ylabel('Tumörstorlek')
+xlabel('Dagar','FontSize',12,'FontWeight','bold')
+ylabel('Tumörstorlek','FontSize',12,'FontWeight','bold')
 hold on
 subplot(3,1,2)
-xlabel('Dagar')
-ylabel('Densitet av M1 makrofager')
+xlabel('Dagar','FontSize',12,'FontWeight','bold')
+ylabel('Densitet av M1 makrofager','FontSize',12,'FontWeight','bold')
 hold on
 subplot(3,1,3)
-xlabel('Dagar')
-ylabel('Densitet av M2 makrofager')
+xlabel('Dagar','FontSize',12,'FontWeight','bold')
+ylabel('Densitet av M2 makrofager','FontSize',12,'FontWeight','bold')
 hold on
 
 
@@ -49,8 +49,8 @@ dark_orange = [112,81,28]/255;
 dark_purple = [101,120,163]/255;
 
 light_green = [122,214,185]/255;
-light_orange = [252,151,98]/255;
-light_purple = [181,220,243]/255;
+light_orange = [232,131,78]/255;
+light_purple = [151,190,203]/255;
 
 greenGRADIENTlight = @(i,N) light_green + (dark_green-light_green)*((i-1)/(N-1));
 greenGRADIENTdark  = @(i,N) dark_green - (dark_green-light_green)*((i-1)/(N-1));
@@ -69,7 +69,7 @@ for i_big_var=1:big_var
 
     if i_big_var == 1
         for i_small_var=1:small_var
-            line_width = 0.5;
+            line_width = 1;
             alpha_plus_var = alpha;
             alpha_plus_var(alpha_chosen,:) = alpha_plus_var(alpha_chosen,:)*(variation_step/2*i_small_var/small_var);
             small_plus_F45 = ForwardODE45(alpha_plus_var,time_mesh,x_initial);
@@ -83,7 +83,7 @@ for i_big_var=1:big_var
         end
     elseif i_big_var == length(variation)
         for i_small_var=1:small_var-1
-            line_width = 0.5;
+            line_width = 1;
             alpha_minus_var=alpha;
             alpha_minus_var(alpha_chosen,:) = alpha_minus_var(alpha_chosen,:)*(0.5 + (i_small_var-1)/small_var/2);
             small_minus_F45 = ForwardODE45(alpha_minus_var,time_mesh,x_initial);
@@ -97,7 +97,7 @@ for i_big_var=1:big_var
         end
     else
         for i_small_var=1:small_var
-            line_width = 0.5;
+            line_width = 1;
 
             alpha_plus_var = alpha;
             alpha_plus_var(alpha_chosen,:) = alpha_plus_var(alpha_chosen,:)*(variation_step/2*i_small_var/small_var);
@@ -111,7 +111,7 @@ for i_big_var=1:big_var
             plot(time_mesh,small_plus_F45(3,:),'color',purpGRADIENTlight(i_small_var,N_small),'linestyle','--','linewidth',line_width);
         end
         for i_small_var=1:small_var-1
-            line_width = 0.5;
+            line_width = 1;
 
             alpha_minus_var=alpha;
             alpha_minus_var(alpha_chosen,:) = alpha_minus_var(alpha_chosen,:)*(0.5 + (i_small_var-1)/small_var/2);
@@ -127,11 +127,11 @@ for i_big_var=1:big_var
         end
     end
     subplot(3,1,1)
-    plot(time_mesh,F45(1,:),'color',orangeGRADIENTlight(i_big_var,N_big),'linewidth',1.5);
+    plot(time_mesh,F45(1,:),'color',orangeGRADIENTlight(i_big_var,N_big),'linewidth',2);
     subplot(3,1,2)
-    plot(time_mesh,F45(2,:),'color',greenGRADIENTlight(i_big_var,N_big),'linewidth',1.5)
+    plot(time_mesh,F45(2,:),'color',greenGRADIENTlight(i_big_var,N_big),'linewidth',2)
     subplot(3,1,3)
-    plot(time_mesh,F45(3,:),'color',purpGRADIENTlight(i_big_var,N_big),'linewidth',1.5)
+    plot(time_mesh,F45(3,:),'color',purpGRADIENTlight(i_big_var,N_big),'linewidth',2)
 end
 
 
