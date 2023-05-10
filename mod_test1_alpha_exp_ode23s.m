@@ -11,14 +11,18 @@ gron = [102,194,165]/255;
 orange = [252,141,98]/255;
 lila = [141,160,203]/255;
 
-alpha_unknown=5;
+alpha_unknown=2;
 
 %modifierad
 alpha_exp_23s=mod_calculate_alpha_exp(alpha,alpha_unknown,x_23s,t_min,t_max);
+alpha_exp_23s_T = alpha_exp_23s';
+alpha_mod_medel = mean(alpha_exp_23s_T([250:498]))
+
 
 %orginal
 alpha_exp_23s_org=calculate_alpha_exp(alpha,alpha_unknown,x_23s,t_min,t_max);
-
+alpha_exp_23s_org_T = alpha_exp_23s_org';
+alpha_mod_medel = mean(alpha_exp_23s_org_T([250:498]))
 
 figure('name','Vanlig')
 subplot(2,1,1)
@@ -53,8 +57,8 @@ hold on
 plot(time_mesh,x_23s(3,:),'-S','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',lila,LineWidth=1);
 hold on
 legend('x_T', 'x_{M1}', 'x_{M2}');
-xlabel('Mätpunkt','FontSize',12,'FontWeight','bold');
-ylabel('Densitet','FontSize',12,'FontWeight','bold')
+xlabel('Dagar','FontSize',12,'FontWeight','bold');
+ylabel('Densitet, [celler]','FontSize',12,'FontWeight','bold')
 
 fontsize(16,"points")
 %% 

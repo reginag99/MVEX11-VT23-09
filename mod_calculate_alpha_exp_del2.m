@@ -52,7 +52,7 @@ elseif alpha_unknown==3
 elseif alpha_unknown==4
     alpha_exp_k_FE = dxM2_dt/(xT*xM1*(1 - (xM2+xM1)/betaM))  - k12/(1 - (xM2+xM1)/betaM); % + deltaM2/(xT*(1 - (xM2+xM1)/betaM))
 else
-    alpha_exp_k_FE = -dxM1_dt/(xM1*xT)  + at1*(1-(xM1 + xM2)/betaM); % + deltaM1/xT
+    alpha_exp_k_FE = -dxM1_dt/(xM1*xT)  + at1*(1-(xM1 + xM2)/betaM); % - deltaM1/xT
 end
 
 end

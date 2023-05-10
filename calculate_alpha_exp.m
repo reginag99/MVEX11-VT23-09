@@ -49,6 +49,6 @@ elseif alpha_unknown==3
 elseif alpha_unknown==4
     alpha_exp_k=(dxM2_dt+deltaM2*xM2-k12*xM1*xT)/(xT*xM2*(1-(xM1+xM2)/betaM));
 else
-    alpha_exp_k=(dxM1_dt-at1*xT*xM1*(1-(xM1+xM2)/betaM)+deltaM1*xM1)/(xT*xM1);
+    alpha_exp_k=(dxM1_dt-at1*xT*xM1*(1-(xM1+xM2)/betaM)-deltaM1*xM1)/(xT*xM1);
 end
 end
