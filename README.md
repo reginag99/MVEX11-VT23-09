@@ -20,9 +20,9 @@ Första delen av projektet är skapad i projektet medan den nedre delen,
 skalningen, är tagen från given kod. 
 
 test3.m är given och visar lösningen av modellen med och utan tillagt
-brus i figur 1. Figur 2 visar lösningen för de olika densiteterna.
+brus i figur 1. Figur 2 visar lösningen för de olika densiteterna. Koden är given och har inte skapats i projektet. 
 
-test2.m var redan given jämför lösningen av ode45 och Newton, bakåt och framåt. 
+test2.m var redan given jämför lösningen av ode45 och Newton, bakåt och framåt. Koden är given och har inte skapats i projektet.
 
 test2_Chebyshew.m jämför lösningen av ode45 och Newton, bakåt och framåt, 
 efter tillämpning av Chebyshew noder. Grunden är test2.m som sedan 
@@ -57,3 +57,9 @@ kod i filen skapats i projektet.
 
 mod_test1_alpha_exp_ode23s.m är en anpassad version av mod_test1_alpha_exp.m 
 för att användas i rapporten. 
+
+Create_adjoint_figure.m gernererar figurerna för Newtons metod i rapporten.
+Filen bygger på given kod som modifierats.
+
+leastsquare.m är polynomregression vilket används för att skapa ett polynom
+ från diskreta datapunkter. Koden är skapad i projektet. 
