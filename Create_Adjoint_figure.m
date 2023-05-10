@@ -2,7 +2,7 @@
 clc; close all; clear all;
 %%initial of x and time variables 
 m = 15; % number of observations
-obs_start = 5; obs_end = 7; %interval of observations
+obs_start = 2.1; obs_end = 7; %interval of observations
 time_final = 20;
 time_start = 0; 
 

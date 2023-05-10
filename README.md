@@ -59,7 +59,10 @@ mod_test1_alpha_exp_ode23s.m är en anpassad version av mod_test1_alpha_exp.m
 för att användas i rapporten. 
 
 Create_adjoint_figure.m gernererar figurerna för Newtons metod i rapporten.
-Filen bygger på given kod som modifierats.
+Filen bygger på given kod som modifierats. Om denna ändras glöm inte att 
+ändra observationsintervallet så det matchar! För att generera samma plottar som i rapporten sätt:
+obs_start = 2.1 för tidsintervall 0 till 20.
+obs_start = 5 och intervallet är 5 till 20. 
 
 leastsquare.m är polynomregression vilket används för att skapa ett polynom
  från diskreta datapunkter. Koden är skapad i projektet. 
