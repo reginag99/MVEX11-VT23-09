@@ -11,8 +11,6 @@ alpha_unknown=4 a_t2 och alpha_unknown=5 k_12.
 test_variation_colour.m bygger på given kod men delen %% Variations in 
 observations är skapat i projektet. Inskrivna max och min punkter för 
 respektive parameter ytterpunkterna på dess estimerade parameterintervall. 
-Undantag är för parameter 5, dvsk12, där intervallet behövde flyttas för 
-att få fram bra grafer.
 
 test_alpha_exp.m är de explicita beräkningarna av en parameter med den
 ursprungliga modellen och inte den förensklade. Det går att välja om 

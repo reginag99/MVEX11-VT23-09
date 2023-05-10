@@ -20,12 +20,8 @@ alpha_exp_23s=mod_calculate_alpha_exp(alpha,alpha_unknown,x_23s,t_min,t_max);
 alpha_exp_Newton=mod_calculate_alpha_exp(alpha,alpha_unknown,x_Newton,t_min,t_max);
 alpha_exp_45=mod_calculate_alpha_exp(alpha,alpha_unknown,x_45,t_min,t_max);
 
-%Orginal, hela
-alpha_exp_23s_org=calculate_alpha_exp(alpha,alpha_unknown,x_23s,t_min,t_max);
-alpha_exp_Newton_org=calculate_alpha_exp(alpha,alpha_unknown,x_Newton,t_min,t_max);
-alpha_exp_45_org=calculate_alpha_exp(alpha,alpha_unknown,x_45,t_min,t_max);
 
-%modifierad, del 1
+%modifierad, del 1 dvs  dm2*xM2/xM1 är borttaget
 alpha_exp_23s_del1=mod_calculate_alpha_exp_del1(alpha,alpha_unknown,x_23s,t_min,t_max);
 alpha_exp_Newton_del1=mod_calculate_alpha_exp_del1(alpha,alpha_unknown,x_Newton,t_min,t_max);
 alpha_exp_45_del1=mod_calculate_alpha_exp_del1(alpha,alpha_unknown,x_45,t_min,t_max);
@@ -35,54 +31,71 @@ alpha_exp_23s_del2=mod_calculate_alpha_exp_del2(alpha,alpha_unknown,x_23s,t_min,
 alpha_exp_Newton_del2=mod_calculate_alpha_exp_del2(alpha,alpha_unknown,x_Newton,t_min,t_max);
 alpha_exp_45_del2=mod_calculate_alpha_exp_del2(alpha,alpha_unknown,x_45,t_min,t_max);
 
+%modifierad, del 3
+alpha_exp_23s_del3=mod_calculate_alpha_exp_del3(alpha,alpha_unknown,x_23s,t_min,t_max);
+alpha_exp_Newton_del3=mod_calculate_alpha_exp_del3(alpha,alpha_unknown,x_Newton,t_min,t_max);
+alpha_exp_45_del3=mod_calculate_alpha_exp_del3(alpha,alpha_unknown,x_45,t_min,t_max);
 
-subplot(2,2,1)
-plot(time_mesh(2:end-1),alpha_exp_23s,'color',gron, LineWidth=1.5)
+figure
+subplot(2,1,1)
+plot(time_mesh(2:end-1),alpha_exp_23s,'-*','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh), 'Color',gron, LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_Newton,'color',orange,LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_Newton,'-o','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',orange,LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_45,'color',lila,LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_45,'-S','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',lila,LineWidth=1)
 hold on
-plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--')
+plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--',LineWidth=1)
 legend('Explicit calculation, ode23s','Explicit calculation, Newton' , 'Explicit calculation, ode45','True value of parameter')
-title('Modifierad, hela')
+title('Förenklad, hela')
+xlabel('Dagar','FontSize',12,'FontWeight','bold');
+ylabel('Parametervärde','FontSize',12,'FontWeight','bold')
 
-subplot(2,2,2)
-plot(time_mesh(2:end-1),alpha_exp_23s_org,'color',gron, LineWidth=1.5)
+
+subplot(2,1,2)
+plot(time_mesh(2:end-1),alpha_exp_23s_del1,'-*','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh), 'Color',gron, LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_Newton_org,'color',orange, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_Newton_del1,'-o','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',orange,LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_45_org,'color',lila, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_45_del1,'-S','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',lila,LineWidth=1)
 hold on
-plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--')
+plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--',LineWidth=1)
 legend('Explicit calculation, ode23s','Explicit calculation, Newton' , 'Explicit calculation, ode45','True value of parameter')
-title('Orginal, hela')
+title('Förenklad, del 1 borta')
+xlabel('Dagar','FontSize',12,'FontWeight','bold');
+ylabel('Parametervärde','FontSize',12,'FontWeight','bold')
+fontsize(16,"points")
 
-subplot(2,2,3)
-plot(time_mesh(2:end-1),alpha_exp_23s_del1,'color',gron, LineWidth=1.5)
+
+figure
+subplot(2,1,1)
+plot(time_mesh(2:end-1),alpha_exp_23s_del2,'-*','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh), 'Color',gron, LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_Newton_del1,'color',orange, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_Newton_del2,'-o','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',orange,LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_45_del1,'color',lila, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_45_del2,'-S','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',lila,LineWidth=1)
 hold on
-plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--')
+plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--',LineWidth=1)
 legend('Explicit calculation, ode23s','Explicit calculation, Newton' , 'Explicit calculation, ode45','True value of parameter')
-title('Modifierad, del 1 borta')
+title('Förenklad, del 2  borta')
+xlabel('Dagar','FontSize',12,'FontWeight','bold');
+ylabel('Parametervärde','FontSize',12,'FontWeight','bold')
 
-subplot(2,2,4)
-plot(time_mesh(2:end-1),alpha_exp_23s_del2,'color',gron, LineWidth=1.5)
+subplot(2,1,2)
+plot(time_mesh(2:end-1),alpha_exp_23s_del3,'-*','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh), 'Color',gron, LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_Newton_del2,'color',orange, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_Newton_del3,'-o','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',orange,LineWidth=1)
 hold on
-plot(time_mesh(2:end-1),alpha_exp_45_del2,'color',lila, LineWidth=1.5)
+plot(time_mesh(2:end-1),alpha_exp_45_del3,'-S','MarkerSize',12,'MarkerIndices',1:20:length(time_mesh),'Color',lila,LineWidth=1)
 hold on
-plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--')
+plot([0 20],[alpha(alpha_unknown) alpha(alpha_unknown)], 'r--',LineWidth=1)
 legend('Explicit calculation, ode23s','Explicit calculation, Newton' , 'Explicit calculation, ode45','True value of parameter')
-title('Orginal, del 2  borta')
+title('Förenklad, del 3  borta')
+xlabel('Dagar','FontSize',12,'FontWeight','bold');
+ylabel('Parametervärde','FontSize',12,'FontWeight','bold')
 
 hold on
 
-
+fontsize(16,"points")
 %%
 figure
 plot(time_mesh,x_45(1,:), 'r');
